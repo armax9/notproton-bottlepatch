@@ -9,6 +9,7 @@ cp repair.py "$out/Contents/Resources/repair.py"
 for f in bridge.py native_bridge.py refresh-tools.py launch-shell Install.command Uninstall.command Start-Steam.command; do
  cp "adapter/$f" "$out/Contents/Resources/adapter/$f"
 done
+chmod +x "$out/Contents/Resources/adapter/launch-shell" "$out/Contents/Resources/adapter/"*.command
 codesign --force --sign - "$out"
 codesign --verify --deep --strict "$out"
 echo "Built: $out"
